@@ -1,0 +1,22 @@
+.nav-bar{
+    background-color:black;
+   
+    
+}
+.nav-links{
+    border-radius:12px;
+    padding:20px;
+    border:5px solid gray;
+    gap: 10px;  
+}
+.nav-item:hover{
+
+    border-radius: 3px;
+    background-color: gray;
+}
+.nav-item{
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    
+}

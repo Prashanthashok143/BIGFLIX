@@ -1,0 +1,76 @@
+.loginPage{
+    background-image: url("../Assests/Bigfllix-Navbar.jpg");
+    background-repeat: cover;
+    background-position: 10% 40%;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  font-family: 'Arial', sans-serif;
+
+
+   
+}
+.Login{
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color:white;
+    height: 75%;
+    width: 35%;
+    padding:50px;
+    position: relative;
+    bottom: 30px;
+  
+}
+
+
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+ 
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color:white;
+    font-size: 16px;
+  }
+  .input-group input::placeholder {
+    color: #ccc;
+  }
+  .input-group input:focus {
+    border-bottom-color: #fff;
+    
+  } 
+@media (max-width:480px) {
+    
+    .Login{
+        height: 75%;
+        width: 70%;
+        padding:10px;
+       
+    }   
+ 
+}
+ @media (min-width:481px) and (max-width:1024px) {
+    .Login{
+        height: 75%;
+        width: 50%;
+        padding:15px;
+    }
+    
+}
+/* @media (min-width:1025px)and(max-width:1280px){
+    Form{
+        height: 75%;
+        width: 50%;
+        padding:0px;
+        
+    }
+}  */
