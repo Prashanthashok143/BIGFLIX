@@ -25,7 +25,7 @@ const NavBar = () => {
                   Home
                 </Link>
               
-                <Link to={"/"} className="ms-2 nav-item">
+                <Link to={"/movies"} className="ms-2 nav-item">
                  Movies
                 </Link>
                 <Link to={"/login"} className="ms-2 nav-item">

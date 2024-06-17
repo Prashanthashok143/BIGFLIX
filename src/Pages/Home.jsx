@@ -13,8 +13,8 @@ const Home = () => {
       <div className="kalkiposter">
       <img src={kalki} alt="kalki" className="kalkiposter" />
       <div className="buttons">
-        <button className="btn btn-danger play m-2 p-2 btn-lg btn-sm" onClick={()=>navigate("/player")}><FaPlay /> Play</button>
-        <button className="btn btn-light moreInfo m-2 p-2 btn-sm"><MdOutlineInfo /> More Info</button>
+        <button className="btn btn-danger play m-2 p-2 btn-lg btn-sm" title='Play' onClick={()=>navigate("/player")}><FaPlay /> Play</button>
+        <button className="btn btn-light moreInfo m-2 p-2 btn-sm" title='More-Info'><MdOutlineInfo /> More Info</button>
       </div>
       </div>
       <div className='text-white'>
