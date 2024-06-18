@@ -6,12 +6,16 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa";
 import "../CSS/BannerMovies.css";
+
 const BannerMovies = () => {
   const BannerData = useSelector((state) => state.Bigflix.MoviesData);
-  const disptach = useDispatch();
+  const loading = useSelector((state) => state.Bigflix.loadingMovies);
+  const error = useSelector((state) => state.Bigflix.error);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    disptach(cinemaData());
-  });
+    dispatch(cinemaData());
+  }, [dispatch]);
 
   const scrollContainerRef = useRef(null);
 
@@ -19,7 +23,6 @@ const BannerMovies = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
         left: -1280,
-        // Adjust this value to control the scroll amount
         behavior: "smooth",
       });
     }
@@ -29,17 +32,24 @@ const BannerMovies = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
         left: 1280,
-        // Adjust this value to control the scroll amount
         behavior: "smooth",
       });
     }
   };
 
+  if (loading) {
+    return <div className="text-white">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="text-white">Error: {error}</div>;
+  }
+
   return (
     <section className="">
       <div
         ref={scrollContainerRef}
-        className="m-5 gap-3 d-flex scroll-data-none overflow-x-scroll w-100 h-100"
+        className="ms-4 gap-5 d-flex scroll-data-none overflow-x-scroll w-100 h-100"
       >
         {BannerData.map(
           ({
@@ -86,3 +96,4 @@ const BannerMovies = () => {
 };
 
 export default BannerMovies;
+

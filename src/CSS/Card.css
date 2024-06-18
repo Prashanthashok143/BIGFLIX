@@ -1,0 +1,6 @@
+.card-container {
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+    width: 200px; /* Adjust width as needed */
+    margin-right: 15px; /* Margin between cards */
+  }
+  

@@ -6,6 +6,8 @@ import Login from './Pages/Login';
 import Player from './Pages/Player';
 import Footer from './Pages/Footer';
 import Movies from './Pages/Movies';
+import MovieDetails from './Features/MovieDetails';
+import TVSeries from './Pages/TVSeries';
 
 function App() {
   return (
@@ -18,6 +20,10 @@ function App() {
       <Route path='/login' element={<Login/>}/>
       <Route path='/player' element={<Player/>}/>
      <Route path='/movies' element={<Movies/>}/>
+     <Route path='/tvseries' element={<TVSeries/>}/>
+     <Route path='/MovieDetails/:id' element={<MovieDetails/>}/>
+
+
   
     
     </Routes>

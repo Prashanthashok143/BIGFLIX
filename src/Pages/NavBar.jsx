@@ -1,5 +1,6 @@
 import React from "react";
-import { Navbar, Nav} from "react-bootstrap";
+import { Navbar, Nav, Button} from "react-bootstrap";
+import Form from 'react-bootstrap/Form';
 import BIGFlix from "../Assests/Bigfllix-Navbar.jpg";
 import "../CSS/NavBar.css";
 import { Link } from "react-router-dom";
@@ -15,7 +16,7 @@ const NavBar = () => {
               <img src={BIGFlix} alt="bigflix logo" height={75} />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-start">
+            <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">
               <Nav
                 className="nav-links"
                 style={{ maxHeight: "100px" }}
@@ -28,12 +29,21 @@ const NavBar = () => {
                 <Link to={"/movies"} className="ms-2 nav-item">
                  Movies
                 </Link>
-                <Link to={"/login"} className="ms-2 nav-item">
-                 WatchList
+                <Link to={"/tvseries"} className="ms-2 nav-item">
+                TV Series
                 </Link>
 
               
               </Nav>
+              <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
             </Navbar.Collapse>
           </Container>
         </Navbar>
