@@ -8,6 +8,7 @@ import { FaArrowRight } from "react-icons/fa";
 import "../CSS/BannerMovies.css";
 
 const BannerMovies = () => {
+  const baseUrl = 'https://image.tmdb.org/t/p/';
   const BannerData = useSelector((state) => state.Bigflix.MoviesData);
   const loading = useSelector((state) => state.Bigflix.loadingMovies);
   const error = useSelector((state) => state.Bigflix.error);
@@ -46,7 +47,7 @@ const BannerMovies = () => {
   }
 
   return (
-    <section className="">
+    <section className="main">
       <div
         ref={scrollContainerRef}
         className="ms-4 gap-5 d-flex scroll-data-none overflow-x-scroll w-100 h-100"
@@ -62,9 +63,12 @@ const BannerMovies = () => {
             popularity,
           }) => (
             <div key={id} className="banner-movie text-white">
-              <img
-                src={`https://image.tmdb.org/t/p/w1280/${backdrop_path}`}
+              <img 
+                src={`${baseUrl}w1280/${backdrop_path}`}
+                srcSet={`${baseUrl}w300/${backdrop_path} 300w, ${baseUrl}w768/${backdrop_path} 780w,${baseUrl}w1280/${backdrop_path} 1280w`}
+                sizes="(max-width:480px) 300px ,(max-width: 768px) 768px"
                 alt={name ?? title}
+               
               />
 
               <div className="banner-overlay p-3 text-start d-flex flex-column">

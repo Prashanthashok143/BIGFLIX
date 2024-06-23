@@ -1,10 +1,12 @@
 import React, { memo, useRef} from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "../CSS/BannerMovies.css";
+
+
 import Card from "./Card";
 import PropTypes from 'prop-types';
 
-const MovieComponents = ({ Data = [], heading, loading, error,trending }) => {
+const MovieComponents = ({ Data = [], heading, loading, error,trending,onDelete }) => {
   const scrollContainerRef = useRef(null);
 
 
@@ -45,7 +47,7 @@ const MovieComponents = ({ Data = [], heading, loading, error,trending }) => {
         <div className="d-flex">
         
           {Data.map((data, index) => (
-            <Card data={data} index={index + 1} trending={trending} key={index}/>
+            <Card data={data} index={index + 1} trending={trending} key={index} onDelete={onDelete}/>
           ))}
         </div>
        

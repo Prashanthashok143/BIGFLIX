@@ -1,10 +1,10 @@
 import React from "react";
-import { Navbar, Nav, Button} from "react-bootstrap";
-import Form from 'react-bootstrap/Form';
+import { Navbar, Nav} from "react-bootstrap";
 import BIGFlix from "../Assests/Bigfllix-Navbar.jpg";
 import "../CSS/NavBar.css";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import ProfileIcon from "../Features/ProfileIcon";
 
 const NavBar = () => {
   return (
@@ -32,18 +32,16 @@ const NavBar = () => {
                 <Link to={"/tvseries"} className="ms-2 nav-item">
                 TV Series
                 </Link>
+                <Link to={"/watchlist"} className="ms-2 nav-item">
+                Watch List
+                </Link><Link to={"/favouritelist"} className="ms-2 nav-item">
+               Favourite List
+                </Link>
 
               
               </Nav>
-              <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
+              
+          <ProfileIcon/>
             </Navbar.Collapse>
           </Container>
         </Navbar>

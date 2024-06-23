@@ -71,6 +71,38 @@ export const TrendingTv=createAsyncThunk("Bigflix/TrendingTv",async()=>{
   })
   return response.data.results;
 });
+export const MoviesFavourite=createAsyncThunk("Bigflix/MoviesFavouriteList",async()=>{
+  const response =await axios.get(`https://bigflix-jsonserver-143.onrender.com/MoviesFavourite`);
+  return response.data;
+})
+export const TvshowsFavourite=createAsyncThunk("Bigflix/TvshowsFavouriteList",async()=>{
+  const response=await axios.get(`https://bigflix-jsonserver-143.onrender.com/TVShowsFavourite`);
+  return response.data;
+})
+export const MoviesWatchList=createAsyncThunk("Bigflix/MoviesWatchList",async()=>{
+  const response=await axios.get(`https://bigflix-jsonserver-143.onrender.com/MoviesWatchlist`);
+  return response.data;
+})
+export const TVShowsWatchlist =createAsyncThunk("Biglix/TvShowsWatchlist",async()=>{
+  const response=await axios.get(`https://bigflix-jsonserver-143.onrender.com/TVShowsWatchlist`);
+  return response.data;
+})
+export const  removeFavouriteMovie=createAsyncThunk("Bigflix/ removeFavouriteMovie",async(movieId)=>{
+  await axios.delete(`https://bigflix-jsonserver-143.onrender.com/MoviesFavourite/${movieId}`);
+  return movieId;
+})
+export const removeFavouriteTvShow=createAsyncThunk("Bigflix/removeFavouriteTvShow",async(tvshowId)=>{
+  await axios.delete(`https://bigflix-jsonserver-143.onrender.com/TVShowsFavourite/${tvshowId}`);
+  return tvshowId;
+})
+export const removeWatchMovie=createAsyncThunk("Bigflix/removeWatchlistMovie",async(movieId)=>{
+  await axios.delete(`https://bigflix-jsonserver-143.onrender.com/MoviesWatchlist/${movieId}`);
+  return movieId;
+})
+export const removeWatchTvshow=createAsyncThunk("Bigflix/removeWatchTvshow",async(tvshowId)=>{
+  await axios.delete(`https://bigflix-jsonserver-143.onrender.com/TVShowsWatchlist/${tvshowId}`);
+  return tvshowId;
+})
 const initialState = {
   MoviesData: [],
   PlayingNow: [],
@@ -80,6 +112,10 @@ const initialState = {
   AiringToday:[],
   OnAir:[],
   TvTrending:[],
+  FavouriteMovie:[],
+  FavouriteTvShows:[],
+  WatchListMovies:[],
+  WatchListTvShows:[],
   loadingMovies: false,
   loadingNowPlaying: false,
   loadingPopular: false, 
@@ -88,6 +124,10 @@ const initialState = {
   loadingAiringToday:false,
   loadingOnAir:false,
   loadingTvTrending:false,
+  loadingFavouriteMovie:false,
+  loadingFavouriteTvShows:false,
+  loadingWatchListMovies:false,
+  loadingWatchListTvShows:false,
   error: null,
 };
 
@@ -192,6 +232,66 @@ const Bigflix = createSlice({
       .addCase(TrendingTv.rejected,(state,action)=>{
         state.loadingTvTrending=false;
         state.error=action.error.message;
+      })
+      .addCase(MoviesFavourite.pending,(state)=>{
+        state.loadingFavouriteMovie=true;
+        state.error=null;
+      })
+      .addCase(MoviesFavourite.fulfilled,(state,action)=>{
+        state.loadingFavouriteMovie=false;
+        state.FavouriteMovie=action.payload;
+      })
+      .addCase(MoviesFavourite.rejected,(state,action)=>{
+        state.loadingFavouriteMovie=false;
+        state.error=action.error.message;
+      })
+      .addCase(TvshowsFavourite.pending,(state)=>{
+        state.loadingFavouriteTvShows=true;
+        state.error=null;
+      })
+      .addCase(TvshowsFavourite.fulfilled,(state,action)=>{
+        state.loadingFavouriteTvShows=false;
+        state.FavouriteTvShows=action.payload;
+      })
+      .addCase(TvshowsFavourite.rejected,(state,action)=>{
+        state.loadingFavouriteTvShows=false;
+        state.error=action.error.message;
+      })
+      .addCase(MoviesWatchList.pending,(state)=>{
+        state.loadingWatchListMovies=true;
+        state.error=null;
+      })
+      .addCase(MoviesWatchList.fulfilled,(state,action)=>{
+        state.loadingWatchListMovies=false;
+        state.WatchListMovies=action.payload;
+      })
+      .addCase(MoviesWatchList.rejected,(state,action)=>{
+        state.loadingWatchListMovies=false;
+        state.error=action.error.message;
+      })
+      .addCase(TVShowsWatchlist.pending,(state)=>{
+        state.loadingWatchListTvShows=true;
+        state.error=null;
+      })
+      .addCase(TVShowsWatchlist.fulfilled,(state,action)=>{
+        state.loadingWatchListTvShows=false;
+        state.WatchListTvShows =action.payload;
+      })
+      .addCase(TVShowsWatchlist.rejected,(state,action)=>{
+        state.loadingWatchListTvShows=false;
+        state.error=action.error.message;
+      })
+      .addCase(removeFavouriteMovie.fulfilled,(state,action)=>{
+        state.FavouriteMovie=state.FavouriteMovie.filter(movie=> movie.id!== action.payload)
+      })
+      .addCase(removeFavouriteTvShow.fulfilled,(state,action)=>{
+        state.FavouriteTvShows=state.FavouriteTvShows.filter(tvshow=>tvshow.id !== action.payload)
+      })
+      .addCase(removeWatchMovie.fulfilled,(state,action)=>{
+        state.WatchListMovies=state.WatchListMovies.filter(movie=>movie.id !== action.payload)
+      })
+      .addCase(removeWatchTvshow.fulfilled,(state,action)=>{
+        state.WatchListTvShows=state.WatchListTvShows.filter(tvshow=>tvshow.id !== action.payload)
       })
   }
 });

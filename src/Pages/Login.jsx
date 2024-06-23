@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Button,} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import "../CSS/LoginPage.css";
 import InputGroup from 'react-bootstrap/InputGroup';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
     const [validated, setValidated] = useState(false);
     const[showPassword,setShowPassword] = useState(false);
+    const navigate=useNavigate();
+    const {pathname}=useLocation();
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+  
+   
     const[formData,setFormData]=useState({
     email:"User123@gmail.com",
     password:"User@123",
@@ -27,7 +35,7 @@ const Login = () => {
         }else{
          const postData={email,password}
          console.log(postData)
-
+          navigate("/movies")
           setFormData({
             email:"",
             password:"",
