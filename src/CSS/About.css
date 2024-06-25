@@ -1,4 +1,4 @@
-/* src/components/ProfileCard.css */
+
 .profile-card {
   position: relative;
   max-width: 300px;
@@ -35,10 +35,11 @@
 
 .profile-card h2 {
   margin: 10px 0;
+
 }
 
 .profile-card p {
-  color: #777;
+  color: brown;
 }
 
 .social-links {

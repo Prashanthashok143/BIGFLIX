@@ -44,13 +44,23 @@ const Card = ({ data, trending, index, onDelete }) => {
           className='text-white overflow-hidden p-3 position-relative d-block' 
           style={{ textDecoration: "none", backgroundColor: "rgba(0, 0, 0, 0.5)" }}
         >
-          <img 
+          {
+            data.poster_path ? (
+              <img 
             src={`https://image.tmdb.org/t/p/w200/${data.poster_path}`} 
             alt="" 
-            className="mb-2" 
+            className="mb-2 image" 
             style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'cover' }} 
           />
-          <div style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}>
+            ) : (
+              <div className='p-5  text-start mt-5'>
+                <h1>☹</h1>
+                  <h1 className='fs-6'>Image not found</h1>
+           
+                </div>
+           )
+          }
+          <div className='movie-name-info' style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}>
             <p className="mb-1">{data.title || data.name}</p>
             <p className="mb-1">{data.release_date || data.first_air_date}</p>
           </div>

@@ -30,6 +30,12 @@
   margin-right: 5px;
 }
 
+.views{
+  padding: 5px;
+  border-radius: 9%;
+  background-color: rgba(255,255, 255, 0.5);
+}
+
 
 
 .scroll-button {
@@ -43,14 +49,7 @@
     cursor: pointer;
     z-index: 1;
   }
-  
-  /* .scroll-button.left-0 {
-    left: 0;
-  }
-  
-  .scroll-button.right-0 {
-    right: 0;
-  } */
+
 
   .scroll-data-none::-webkit-scrollbar{
     display: none;

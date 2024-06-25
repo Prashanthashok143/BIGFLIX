@@ -17,7 +17,7 @@ const WatchList = () => {
     dispatch(removeWatchTvshow(tvshowId))
   }
   return (
-    <div>
+    <div className='text-white'>
       <MovieComponents
             Data={WatchListMovies}
             heading={"Movies WatchList"}

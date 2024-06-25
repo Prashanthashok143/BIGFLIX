@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {Button,} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import "../CSS/LoginPage.css";
@@ -6,9 +6,11 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useLocation, useNavigate } from 'react-router-dom';
+import { UsernameProvider } from '../App';
 
 
 const Login = () => {
+  const {setAuthenticate} =useContext(UsernameProvider)
     const [validated, setValidated] = useState(false);
     const[showPassword,setShowPassword] = useState(false);
     const navigate=useNavigate();
@@ -20,7 +22,7 @@ const Login = () => {
    
     const[formData,setFormData]=useState({
     email:"User123@gmail.com",
-    password:"User@123",
+    password:"User123#@password",
     })
     const handleChanges=(e)=>{
         const {name,value}=e.target;
@@ -29,13 +31,13 @@ const Login = () => {
     const handleSubmit=(e)=>{
         e.preventDefault();
         const{email,password}=formData;
-        if(email !== "User123@gmail.com"  || password !== "User@123"){
+        if(email !== "User123@gmail.com"  || password !== "User123#@password"){
           toast.error("Provide Correct Email and Password");
           setValidated(true);
         }else{
-         const postData={email,password}
-         console.log(postData)
           navigate("/movies")
+          localStorage.setItem("Username",email)
+          setAuthenticate(true)
           setFormData({
             email:"",
             password:"",
@@ -109,6 +111,10 @@ const Login = () => {
 
         <div className="w-100 mt-3 ms-1">
         <Button variant="success" type='submit' className='w-100'>Login</Button>
+        </div>
+        <div className='text-start mt-1'>
+        <p>Email Address : User123@gmail.com 😎</p>
+        <p>Password :User123#@password</p>
         </div>
     </Form>  
     <ToastContainer />

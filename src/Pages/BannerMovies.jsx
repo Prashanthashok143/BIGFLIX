@@ -79,7 +79,7 @@ const BannerMovies = () => {
                     <FontAwesomeIcon icon={faStar} />
                     <span>{vote_average.toFixed(1)}</span>
                   </div>
-                  <p className="ms-3">Views: {Math.floor(popularity)}</p>
+                  <p className="ms-3 mt-3 views">Views: {Math.floor(popularity)}</p>
                 </div>
               </div>
             </div>

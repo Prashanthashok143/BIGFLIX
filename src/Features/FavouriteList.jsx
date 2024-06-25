@@ -20,7 +20,7 @@ const FavouriteList = () => {
       dispatch(removeFavouriteTvShow(tvshowId))
     }
   return (
-    <div >FavouriteList
+    <div className='text-white'>FavouriteList
        <MovieComponents
             Data={FavouriteMovie}
             heading={"Favourite Movies"}

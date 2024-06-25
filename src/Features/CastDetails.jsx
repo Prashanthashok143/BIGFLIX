@@ -7,8 +7,7 @@ const CastDetails = () => {
   const [castData, setCastData] = useState([]);
   const location = useLocation();
   const MovieDataDetails = location.state.MovieDataDetails;
-  const { id, media_type } = MovieDataDetails;
-  console.log(MovieDataDetails)  
+  const { id, media_type } = MovieDataDetails; 
   useEffect(() => {
     const fetchCastDetails = async (type) => {
       try {
@@ -60,7 +59,7 @@ const CastDetails = () => {
             >
               <img
                 src={`https://image.tmdb.org/t/p/w200/${member.profile_path}`}
-                alt={member.name}
+                alt={member.profile_path ? member.name:"no image found"}
                 className="cast-profile"
               />
               <div className="cast-info">

@@ -124,8 +124,8 @@ const MovieDetails = () => {
           <div className="movie-info ps-3 ms-3">
             <h1 className="title">{title || name}</h1>
             <p className="overview">{overview}</p>
-            <p>{release_date}</p>
-            <p className="vote-average">Rating: {vote_average.toFixed(1)}</p>
+            <p className="release-date">Release date : {release_date}</p>
+            <p className="vote-average">Rating : {vote_average.toFixed(1)}</p>
             <div className="movie-actions">
               <button
               title="Youtube"

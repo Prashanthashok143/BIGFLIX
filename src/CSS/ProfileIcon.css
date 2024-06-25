@@ -11,4 +11,15 @@
     height: 100%;
     object-fit: cover;
   }
+  .nav-link {
   
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    color: lightgray;
+  }
+  .profile-image:hover{
+    cursor: pointer;
+  }

@@ -1,0 +1,51 @@
+.not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #f8f9fa;
+    text-align: center;
+   
+  }
+  
+  .not-found-content {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: black;
+    box-shadow: 0 4px 8px whitesmoke;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: float 1s ease infinite;
+    
+  }
+  @keyframes float {
+    0% {
+      transform: translateX(0px);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  
+  .not-found h1 {
+    font-size: 100px;
+    margin: 0;
+    color: white;
+  }
+  
+  .not-found h2 {
+    font-size: 24px;
+    margin: 20px 0;
+    color: #6c757d;
+  }
+  
+  .not-found p {
+    font-size: 16px;
+    color: #6c757d;
+  }
+  
+  

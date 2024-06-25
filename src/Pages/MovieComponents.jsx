@@ -1,6 +1,10 @@
 import React, { memo, useRef} from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "../CSS/BannerMovies.css";
+import { tailChase} from 'ldrs'
+
+
+
 
 
 import Card from "./Card";
@@ -8,7 +12,7 @@ import PropTypes from 'prop-types';
 
 const MovieComponents = ({ Data = [], heading, loading, error,trending,onDelete }) => {
   const scrollContainerRef = useRef(null);
-
+  tailChase.register()
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -29,7 +33,13 @@ const MovieComponents = ({ Data = [], heading, loading, error,trending,onDelete 
   };
 
   if (loading) {
-    return <div className="text-white">Loading...</div>;
+    return (
+    <div>
+      <l-tail-chase
+      size="60"
+      speed="1.75" 
+      color="white" 
+    ></l-tail-chase></div>);
   }
 
   if (error) {
