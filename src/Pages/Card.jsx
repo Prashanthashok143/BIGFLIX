@@ -31,7 +31,7 @@ const Card = ({ data, trending, index, onDelete }) => {
     event.stopPropagation(); 
     // Prevent the card click event
     onDelete(data.id);
-    console.log(data.id)
+    
   }
 
   return (
