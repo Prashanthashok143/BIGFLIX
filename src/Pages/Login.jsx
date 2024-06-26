@@ -56,7 +56,7 @@ const Login = () => {
       
     }
   return (
-    <div className="mb-1 d-flex justify-content-center align-items-center vh-100 loginPage">
+    <div className="loginPage">
     
 
 
