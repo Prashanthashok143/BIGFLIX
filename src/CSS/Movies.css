@@ -1,0 +1,12 @@
+@media (max-width: 480px) {
+    .search-form-group {
+      width: 100% !important;
+    }
+  }
+  
+  @media (min-width: 481px) {
+    .search-form-group {
+      width: 50% !important;
+    }
+  }
+  

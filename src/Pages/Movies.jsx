@@ -6,6 +6,7 @@ import { MoviePopular, NowPlaying } from "../App/MovieSlice";
 import { Button} from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
 import axios from "axios";
+import "../CSS/Movies.css"
 
 const Movies = () => {
   const[searchInput,setSearchInput]=useState(" ");
@@ -34,17 +35,19 @@ const handleSearchData=()=>{
 
   return (
     <div>
-      <Form className="d-flex justify-content-center me-5 p-3">
-            <Form.Control
-              type="Search"
-              placeholder="Search"
-              className="w-50 ps-2 ms-2"
-              value={searchInput}
-              onChange={(e)=>setSearchInput(e.target.value)}
-              aria-label="Search"
-            />
-            <Button onClick={handleSearchData} variant="success">Search</Button>
-          </Form>
+         <Form className="d-flex justify-content-center">
+      <Form.Group className="d-flex flex-grow-1 w-100 justify-content-center search-form-group"  style={{ maxWidth: '50%' }}>
+        <Form.Control
+          type="search"
+          placeholder="Search"
+          className="w-100 me-2"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+          aria-label="Search"
+        />
+        <Button onClick={handleSearchData} variant="success">Search</Button>
+      </Form.Group>
+    </Form>
        {   
         searchData && searchData.length > 0 && (
           <MovieComponents
