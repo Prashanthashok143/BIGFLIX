@@ -52,7 +52,7 @@ const MovieComponents = ({ Data = [], heading, loading, error,trending,onDelete 
 
   return (
     <div>
-      <h1 className="text-white">{heading}</h1>
+      <h1 className="text-white mt-3">{heading}</h1>
       <div className="scroll-container text-white scroll-data-none overflow-x-scroll" ref={scrollContainerRef}>
         <div className="d-flex">
         
