@@ -36,13 +36,21 @@
     position: relative;
     margin: 10px;
   }
-  @media (max-width:480px) {
+  @media (max-width:335px) {
     .card-container{
-      margin: 50px;
+      margin-left: 50px;
     }
  
 }
- @media (min-width:481px) and (max-width:1024px) {
-   
+@media (min-width:336px) and  (max-width:375px) {
+  .card-container{
+    margin-left: 75px;
+  }
+
+}
+ @media (min-width:376px) and (max-width:767px) {
+  .card-container{
+    margin-left: 100px;
+  }
     
 }

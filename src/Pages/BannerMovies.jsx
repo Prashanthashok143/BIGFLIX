@@ -32,7 +32,7 @@ const BannerMovies = () => {
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
-        left: 1280,
+        left: 1480,
         behavior: "smooth",
       });
     }
@@ -50,7 +50,7 @@ const BannerMovies = () => {
     <section className="main">
       <div
         ref={scrollContainerRef}
-        className="ms-4 gap-5 d-flex scroll-data-none overflow-x-scroll w-100 h-100"
+        className="gap-5 d-flex scroll-data-none overflow-x-scroll w-100 h-100"
       >
         {BannerData.map(
           ({

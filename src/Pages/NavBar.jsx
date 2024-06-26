@@ -15,7 +15,7 @@ const NavBar = () => {
         <Navbar className="nav-bar" variant="dark" expand="lg">
           <Container fluid>
             <Navbar.Brand>
-              <img src={BIGFlix} alt="bigflix logo" height={100} />
+              <img src={BIGFlix} alt="bigflix logo" height={75} />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="justify-content-between">

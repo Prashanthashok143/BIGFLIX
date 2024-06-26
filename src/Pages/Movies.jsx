@@ -43,7 +43,7 @@ const handleSearchData=()=>{
               onChange={(e)=>setSearchInput(e.target.value)}
               aria-label="Search"
             />
-            <Button onClick={handleSearchData} variant="outline-success">Search</Button>
+            <Button onClick={handleSearchData} variant="success">Search</Button>
           </Form>
        {   
         searchData && searchData.length > 0 && (

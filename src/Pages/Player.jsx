@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import KalkiTrailer from "../Assests/Kalki 2898 AD Trailer - Telugu _ Prabhas _ Amitabh Bachchan _ Kamal Haasan _ Deepika _ Nag Ashwin.mp4"
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 const Player = () => {
     const navigate=useNavigate();
+    const {pathname}=useLocation();
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
   return (
     <div>
       <div className='d-flex justify-content-start' onClick={()=>navigate("/")}>

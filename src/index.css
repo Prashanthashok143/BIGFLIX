@@ -1,12 +1,10 @@
 
 *{
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-size: large;
-  font-weight: 300;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400px;
+    font-style: normal;
+  
+  
 }
  
 body {
