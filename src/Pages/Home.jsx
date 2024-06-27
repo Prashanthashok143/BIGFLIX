@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import kalki from "../Assests/Kalki.avif";
 import { FaPlay } from "react-icons/fa";
 import { MdOutlineInfo } from "react-icons/md";
@@ -6,9 +6,22 @@ import "../CSS/Home.css";
 import { useNavigate } from 'react-router-dom';
 import FAQs from "./FAQs";
 import Button from 'react-bootstrap/Button';
+import { UsernameProvider } from "../App";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   const navigate = useNavigate();
+  const {authenticate} =useContext(UsernameProvider)
+ const handleLogin=()=>{
+  if(authenticate){
+    toast.error("Already Logged In");
+  }
+  else{
+    navigate("/login")
+    toast.success("Successfully Logged In");
+  }
+ }
   return (
     <div>
       <div className="kalkiposter-container">
@@ -26,9 +39,10 @@ const Home = () => {
         <p>
           Join Bigflix today and elevate your streaming experience with unparalleled convenience, quality, and choice. Enjoy your favorite movies and shows like never before, with Bigflix!
         </p>
-        <Button variant="danger" className='w-25 m-3' onClick={() => navigate("/login")}>Login To Explore More</Button>
+        <Button variant="danger" className='w-25 m-3' onClick={handleLogin}>Login To Explore More</Button>
       </div>
       <FAQs />
+      <ToastContainer />
     </div>
   );
 }
