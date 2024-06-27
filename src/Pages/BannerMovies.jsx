@@ -47,7 +47,7 @@ const BannerMovies = () => {
   }
 
   return (
-    <section className="main">
+    <section className="main mt-3">
       <div
         ref={scrollContainerRef}
         className="gap-5 d-flex scroll-data-none overflow-x-scroll w-100 h-100"

@@ -1,4 +1,3 @@
-// Card.jsx
 import React, { memo } from 'react';
 import "../CSS/Card.css";
 import { GrClose } from "react-icons/gr";

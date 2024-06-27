@@ -4,9 +4,10 @@ import "../CSS/MovieDetails.css";
 import Youtube from"../Assests/youtube.png"
 import Favourite from"../Assests/add-to-favorites.png"
 import Watchlist from"../Assests/bookmark.png"
-
+import "react-toastify/dist/ReactToastify.css";
 import CastDetails from "./CastDetails";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -16,6 +17,7 @@ const MovieDetails = () => {
 
   const MovieDataDetails = location.state.MovieDataDetails;
   let {
+    id,
     name,
     backdrop_path,
     overview,
@@ -25,10 +27,23 @@ const MovieDetails = () => {
     media_type,
     vote_average,
   } = MovieDataDetails;
+  console.log(MovieDataDetails)
 
-
-  const postFavourite = () => {
+  const checkIfFavouriteExists=async(url,movieId)=>{
+    try{
+      const response =await axios.get(url);
+      const favourites = response.data;
+      return favourites.some(favourite => favourite.id === movieId);  
+    }
+  
+  catch(error){
+    console.error("Error fetching favouirtes:",error);
+    return false;
+  }
+  };
+  const postFavourite = async() => {
     const postMovieDetails = {
+      id,
       name,
       backdrop_path,
       overview,
@@ -57,17 +72,24 @@ const MovieDetails = () => {
         ? "https://bigflix-jsonserver-143.onrender.com/TVShowsFavourite"
         : "https://bigflix-jsonserver-143.onrender.com/MoviesFavourite";
 
-      axios.post(url, postMovieDetails)
+        const exists=await checkIfFavouriteExists(url,id)
+        if(exists){
+          toast.error("Already add to favourite list");
+          return;
+        }
+        axios.post(url, postMovieDetails)
         .then((data) => console.log(data))
         .catch((error) => console.log(error));
+        toast.success("Add to favourite list");
     } else {
       console.error("Failed to determine type, details not posted.");
     }
   };
 
 
- const postWatchlist=()=>{
+ const postWatchlist=async()=>{
   const postMovieDetails = {
+   id,
     name,
     backdrop_path,
     overview,
@@ -96,9 +118,15 @@ const MovieDetails = () => {
       ? "https://bigflix-jsonserver-143.onrender.com/TVShowsWatchlist"
       : "https://bigflix-jsonserver-143.onrender.com/MoviesWatchlist";
 
+      const exists=await checkIfFavouriteExists(url,id)
+        if(exists){
+          toast.error("Already add to Watchlist list");
+          return;
+        }
     axios.post(url, postMovieDetails)
       .then((data) => console.log(data))
       .catch((error) => console.log(error));
+      toast.success("Add to Watchlist list");
   } else {
     console.error("Failed to determine type, details not posted.");
   }
@@ -151,7 +179,7 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
-
+      <ToastContainer/>
       <CastDetails />
     </div>
   );

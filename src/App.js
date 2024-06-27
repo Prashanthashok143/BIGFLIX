@@ -17,8 +17,8 @@ import NoPage from './Pages/NoPage';
 
 export const UsernameProvider=createContext(null);
 function App() {
-  //  const LogInOut=localStorage.getItem("Username") !== null;
-  const[authenticate,setAuthenticate] =useState(false);
+   const LogInOut=localStorage.getItem("Username") !== null;
+  const[authenticate,setAuthenticate] =useState(LogInOut ?? false);
   const UsernamePassing={authenticate,setAuthenticate};
   return (
     <div className="App">
